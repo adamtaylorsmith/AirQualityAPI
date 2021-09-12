@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<br>
+<div class="container access">
+    <div class="row">
+        <div class="col-2" id="refresh"><button class="buttonSty"><a href="javascript:location.reload(true)">Refresh Page</a></button></div>
+        <div class="col-10"><h1>Air Quality Index and Weather Conditions</h1></div>
+    </div>
+    <hr><br>
+    <div class="row">
+        <div class="col-5">
+            <form>
+                <label>Select a Country:</label>
+                <select id="selectCountry"><option></option>
+                </select>&nbsp;&nbsp;
+                <button onclick="catchStates();return false" class="buttonSty">CHOOSE</button>
+            </form><br>
+            <form id="stateForm">
+                <label>Select a State:</label>
+                <select id="selectState"><option></option>
+                </select>
+                <button onclick="catchCities();return false" class="buttonSty">CHOOSE</button>
+            </form><br>
+            <form id="cityForm">
+                <label>Select a City:</label>
+                <select id="selectCity"><option></option>
+                </select>
+                <button onclick="catchFormData();return false" class="buttonSty">CHOOSE</button>
+            </form>
+        </div>
+        <div class="col-2">- OR -</div>
+        <div class="col-4"><p>Allow us access to your location and get an automatic GPS result:</p><br>
+            <button onclick="getLocation()">CLICK FOR GPS</button>
+        </div>
+    </div>   
+</div>
+
+<br>
+    <div class="title"></div>
+    <div class="container">
+        <div class="icon img-fluid"></div>
+        <div class="row">
+            <div class="col-4 aqi"></div>
+            <div class="col-7">  
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-7 key">
+                <ul class="">
+                    <h4>AQI Index defined</h4>
+                    <li>0 - 50: Good / Green - air pollution poses no threat</li>
+                    <li>51 - 100: Moderate / Yellow - risk for some sensitive people</li>
+                    <li>101 - 150: Poor / Orange - unhealthy for sensitive people</li>
+                    <li>151 - 200: Unhealhty / Red - general public may experience health effects</li>
+                    <li>201 - 300: Very unhealhty / Violet: risk of health effects is increased for everyone</li>
+                    <li>301+: Hazardous / Maroon - health alert of emergency conditions</li>
+                </ul>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="patt col-6"></div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="temp col-4"></div>
+            <div class="col-2"></div>
+            <div class="humid col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="speed col-4"></div>
+            <div class="col-2"></div>
+            <div class="direct col-4"></div>
+        </div>
+    </div>
+
+    <br><br>
+
+<script src="index.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!-- 
+wind speed / direction
+    north:      if wd>=338 || wd<=23
+    northeast:  if wd>=24 && wd<=69
+    east:       if wd>=70 && wd<=115
+    southeast:  if wd>=116 && wd<=61
+    south:      if wd>=162 && wd<=207
+    southwest:  if wd>=208 && wd<=253
+    west:       if wd>=254 && wd<=289
+    northwest:  if wd>=290 && wd<=337
+
+data:
+city: "Indianapolis"
+country: "USA"
+current:pollution:
+aqicn: 5 chinese
+aqius: 16 // 
+maincn: "p2" chinese
+mainus: "p2" //main pollutant for US AQI
+ts: "2020-09-30T03:00:00.000Z" TIMESTAMP
+
+current:weather:
+hu: 66 //humidity %
+ic: "04n" //weather icon code / .png
+pr: 1011 //atmospheric pressure in hPa
+tp: 10 //temperature in Celsius
+ts: "2020-09-30T03:00:00.000Z" TIMESTAMP
+wd: 260 //wind direction, as an angle of 360° (N=0, E=90, S=180, W=270)
+ws: 2.6 //wind speed (m/s)
+
+location:coordinates: Array(2)
+0: -86.2147
+1: 39.7889
+
+ -->

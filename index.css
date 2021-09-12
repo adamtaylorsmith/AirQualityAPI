@@ -1,0 +1,116 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2em;
+    color: #35393e;
+    background-color: #F9F5F3;
+}
+a {
+    color: #35393e;
+}
+a:hover {
+    color: #35393e;
+    text-decoration: underline;
+}
+#refresh {
+    padding: 10px 0 0 0;
+}
+.buttonSty {
+    color: #35393e;
+    font-size: 16px;
+}
+#stateForm {
+    display: none;
+}
+#cityForm {
+    display: none;
+}
+.title {
+    text-align: center;
+}
+.container {
+    position: relative;
+    text-align: center;
+}
+.icon {
+    width: 90%;
+}
+.access {
+    padding: 20px 10px;
+}
+.aqi {
+    display: none;
+    padding: 15px 5px;
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    border-radius: 2%;
+    border: 1px solid black;
+}
+.key {
+    display: none;
+    position: absolute;
+    top: 115px;
+    left: 50px;
+    border-radius: 2%;
+    background-color: white;
+    text-align: left;
+    padding: 5px;
+    border-radius: 2%;
+    margin-left: 10px;
+    font-size: .8em;
+    border: 1px solid black;
+}
+.patt {
+    display: none;
+    position: absolute;
+    bottom: 135px;
+    left: 65px;
+    border-radius: 2%;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid black;
+}
+.temp {
+    display: none;
+    position: absolute;
+    bottom: 75px;
+    left: 65px;
+    border-radius: 2%;
+    background-color: white;
+    padding: 5px;
+    border-radius: 2%;
+    border: 1px solid black;
+}
+.humid {
+    display: none;
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    border-radius: 2%;
+    background-color: white;
+    padding: 5px;
+    border-radius: 2%;
+    border: 1px solid black;
+}
+.speed {
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    left: 65px;
+    border-radius: 5%;
+    background-color: white;
+    padding: 5px;
+    border-radius: 2%;
+    border: 1px solid black;
+}
+.direct {
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    border-radius: 2%;
+    background-color: white;
+    padding: 5px;
+    border-radius: 2%;
+    border: 1px solid black;
+}
