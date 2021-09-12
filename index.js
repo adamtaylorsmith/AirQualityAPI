@@ -29,44 +29,45 @@ const requestOptions = {
 };
 
 async function catchCountries() {
-  // let response = await fetch(baseURL+'countries?'+APIkey, requestOptions);
-  // blob = await response.json();
-  fetch(baseURL+'countries?'+APIkey, requestOptions) 
-  .then(response => response.text())
-  .then(result => {console.log(result)
-                  )
-  .catch(error => console.log('error', error))
+  const response = await fetch(baseURL+'countries?'+APIkey);
+  blob = await response.json();
+  console.log(blob.data)
+  document.querySelector('#countryform').style.display = 'block';
 
-  // console.log(blob.data[8].country);
-  // console.log(blob.data.length); 
+  for (let i=0; i<blob.data.length; i++) {
+    const countries = blob.data[i].country;
+    const countryLI = document.createElement('option');
+    countryLI.innerText = countries;
+    counrtyOption.appendChild(countryLI);
+  }
 }
 catchCountries();
 
 async function catchStates() {
-  let response = await fetch(baseURL+`states?country=`+counrtyOption.value+`&`+APIkey);
+  const response = await fetch(baseURL+`states?country=`+counrtyOption.value+`&`+APIkey);
   blob = await response.json(); 
   console.log(blob.data[8]);
   console.log(blob.data.length);
   document.querySelector('#stateForm').style.display = 'block';
 
   for (let i=0; i<blob.data.length; i++) {
-    let states = blob.data[i].state;
-    let stateLI = document.createElement('option');
+    const states = blob.data[i].state;
+    const stateLI = document.createElement('option');
     stateLI.innerText = states;
     stateOption.appendChild(stateLI);
   }
 }
 
 async function catchCities() {
-  let response = await fetch(baseURL+`cities?state=`+stateOption.value+`&country=`+counrtyOption.value+`&`+APIkey);
+  const response = await fetch(baseURL+`cities?state=`+stateOption.value+`&country=`+counrtyOption.value+`&`+APIkey);
   blob = await response.json();
   console.log(blob.data[0]);
   console.log(blob.data.length);
   document.querySelector('#cityForm').style.display = 'block';
 
   for (let i=0; i<blob.data.length; i++) {
-    let cities = blob.data[i].city;
-    let cityLI = document.createElement('option');
+    const cities = blob.data[i].city;
+    const cityLI = document.createElement('option');
     cityLI.innerText = cities;
     cityOption.appendChild(cityLI);
   }
@@ -84,12 +85,12 @@ function showPosition(position) {
   const longitude = position.coords.longitude; //-86.1274112 for example
   const gpsAddress = baseURL+"nearest_city?lat="+latitude+"&lon="+longitude+"&"+APIkey;
   async function catchAPIAgain() {
-    let responseGPS = await fetch(gpsAddress);
+    const responseGPS = await fetch(gpsAddress);
     blob = await responseGPS.json();
     console.log(blob); 
 
-    let title = blob.data.city+", "+blob.data.country;
-    let showTitle = document.createElement('h1');
+    const title = blob.data.city+", "+blob.data.country;
+    const showTitle = document.createElement('h1');
     showTitle.innerText = title;
     titleData.appendChild(showTitle);
 
@@ -99,12 +100,12 @@ function showPosition(position) {
 }
 
 async function catchFormData() {
-  let response = await fetch(baseURL+`city?city=`+cityOption.value+`&state=`+stateOption.value+`&country=`+counrtyOption.value+`&`+APIkey);
+  const response = await fetch(baseURL+`city?city=`+cityOption.value+`&state=`+stateOption.value+`&country=`+counrtyOption.value+`&`+APIkey);
   blob = await response.json();
   console.log(blob.data);
 
-  let title = cityOption.value+', '+stateOption.value+', '+counrtyOption.value;
-  let showTitle = document.createElement('h1');
+  const title = cityOption.value+', '+stateOption.value+', '+counrtyOption.value;
+  const showTitle = document.createElement('h1');
   showTitle.innerText = title;
   titleData.appendChild(showTitle);
   showData();
@@ -119,13 +120,13 @@ function showData() {
   document.querySelector('.speed').style.display = 'block';
   document.querySelector('.direct').style.display = 'block';
 
-  let icon = blob.data.current.weather.ic;
-  let showIcon = document.createElement('img');
+  const icon = blob.data.current.weather.ic;
+  const showIcon = document.createElement('img');
   showIcon.src = "assets/"+icon+".jpg";
   weatherIcon.appendChild(showIcon);
 
-  let aqius = blob.data.current.pollution.aqius;
-  let showAqi = document.createElement('h2');
+  const aqius = blob.data.current.pollution.aqius;
+  const showAqi = document.createElement('h2');
   showAqi.innerText = "Current AQI index: "+aqius;
   aqiData.appendChild(showAqi);
 
@@ -143,8 +144,8 @@ function showData() {
     aqiData.style.backgroundColor = '#68020f';
   }
 
-  let pattern = blob.data.current.weather.ic;
-  let patternBlock = 
+  const pattern = blob.data.current.weather.ic;
+  const patternBlock = 
     pattern == '01d' ? 'Sunny' 
     : pattern == '01n' ? 'Clear sky' 
     : pattern == '02d' ? 'Few clouds' 
@@ -160,29 +161,29 @@ function showData() {
     : pattern == '13d' ? 'Snow' 
     : pattern == '50d' ? 'Mist' 
     : 'Mist';
-  let showPattern = document.createElement('h4');
+  const showPattern = document.createElement('h4');
   showPattern.innerText = "Current weather pattern: "+patternBlock;
   patternData.appendChild(showPattern);
 
-  let temp = blob.data.current.weather.tp;
-  let tempF = temp * 9 / 5 + 32;
-  let showTemp = document.createElement('h4');
+  const temp = blob.data.current.weather.tp;
+  const tempF = temp * 9 / 5 + 32;
+  const showTemp = document.createElement('h4');
   showTemp.innerText = "Temperature: "+tempF+" F";
   tempData.appendChild(showTemp);
 
-  let humid = blob.data.current.weather.hu;
-  let showHumid = document.createElement('h4');
+  const humid = blob.data.current.weather.hu;
+  const showHumid = document.createElement('h4');
   showHumid.innerText = "Humidity: "+humid+" %";
   humidData.appendChild(showHumid);
 
-  let winds = blob.data.current.weather.ws;
-  let windMPH = (winds * 2.24);
-  let windMph = windMPH.toFixed(1);
-  let showWindS = document.createElement('h4');
+  const winds = blob.data.current.weather.ws;
+  const windMPH = (winds * 2.24);
+  const windMph = windMPH.toFixed(1);
+  const showWindS = document.createElement('h4');
   showWindS.innerText = "Wind speed: "+windMph+" mph";
   speedData.appendChild(showWindS);
 
-  let windd = blob.data.current.weather.wd;
+  const windd = blob.data.current.weather.wd;
 
   if ((windd>=338) || (windd<=23)) {
     windd = "North";
@@ -201,7 +202,7 @@ function showData() {
   } else {
     windd = "Northwest";
   }
-  let showWindD = document.createElement('h4');
+  const showWindD = document.createElement('h4');
   showWindD.innerText = "Wind direction: "+windd;
   directData.appendChild(showWindD);
 }
