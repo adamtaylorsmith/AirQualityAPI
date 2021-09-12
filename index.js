@@ -29,10 +29,16 @@ const requestOptions = {
 };
 
 async function catchCountries() {
-  let response = await fetch(baseURL+'countries?'+APIkey, requestOptions);
-  blob = await response.json();
+  // let response = await fetch(baseURL+'countries?'+APIkey, requestOptions);
+  // blob = await response.json();
+  fetch(baseURL+'countries?'+APIkey, requestOptions) 
+  .then(response => response.text())
+  .then(result => {console.log(result)
+                  blob = result})
+  .catch(error => console.log('error', error))
+
   console.log(blob.data[8].country);
-  console.log(blob.data.length);  
+  console.log(blob.data.length); 
 }
 catchCountries();
 
