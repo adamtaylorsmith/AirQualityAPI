@@ -103,7 +103,7 @@ async function catchFormData() {
   const response = await fetch(baseURL+`city?city=`+cityOption.value+`&state=`+stateOption.value+`&country=`+counrtyOption.value+`&`+APIkey);
   blob = await response.json();
   console.log(blob.data);
-
+  // console.log(blob.data.current.weather.wd)
   const title = cityOption.value+', '+stateOption.value+', '+counrtyOption.value;
   const showTitle = document.createElement('h1');
   showTitle.innerText = title;
@@ -183,7 +183,7 @@ function showData() {
   showWindS.innerText = "Wind speed: "+windMph+" mph";
   speedData.appendChild(showWindS);
 
-  const windd = blob.data.current.weather.wd;
+  let windd = blob.data.current.weather.wd;
 
   if ((windd>=338) || (windd<=23)) {
     windd = "North";
