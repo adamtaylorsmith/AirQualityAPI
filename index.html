@@ -11,33 +11,40 @@
 <br>
 <div class="container access">
     <div class="row">
-        <div class="col-2" id="refresh"><button class="buttonSty"><a href="javascript:location.reload(true)">Refresh Page</a></button></div>
-        <div class="col-10"><h1>Air Quality Index and Weather Conditions</h1></div>
-    </div>
+        <div class="col"><h1>Air Quality Index and Weather Conditions Around the World</h1></div>
+    </div><br>
+    <div class="row">
+        <div class="col" id="refresh"><button class="buttonSty"><a href="javascript:location.reload(true)">Refresh Page</a></button></div>
+        
+    </div><br>
     <hr><br>
     <div class="row">
-        <div class="col-5">
+        <div class="col">
             <form id="countryform">
-                <label>Select a Country:</label>
+                <label>Select a Country:</label><br>
                 <select id="selectCountry"><option></option>
                 </select>&nbsp;&nbsp;
                 <button onclick="catchStates();return false" class="buttonSty">CHOOSE</button>
             </form><br>
             <form id="stateForm">
-                <label>Select a State:</label>
+                <label>Select a State:</label><br>
                 <select id="selectState"><option></option>
                 </select>
                 <button onclick="catchCities();return false" class="buttonSty">CHOOSE</button>
             </form><br>
             <form id="cityForm">
-                <label>Select a City:</label>
+                <label>Select a City:</label><br>
                 <select id="selectCity"><option></option>
                 </select>
                 <button onclick="catchFormData();return false" class="buttonSty">CHOOSE</button>
-            </form>
+            </form><br>
         </div>
-        <div class="col-2">- OR -</div>
-        <div class="col-4"><p>Allow us access to your location and get an automatic GPS result:</p><br>
+    </div>
+    <div class="row">
+        <div class="col">- OR -</div>
+    </div><br><br>
+    <div class="row">
+        <div class="col"><p>Allow us access to your LOCATION and get an automatic GPS result:</p>
             <button onclick="getLocation()">CLICK FOR GPS</button>
         </div>
     </div>   
@@ -48,41 +55,35 @@
     <div class="container">
         <div class="icon img-fluid"></div>
         <div class="row">
-            <div class="col-4 aqi"></div>
-            <div class="col-7">  
-            </div>
+            <div class="col-12 col-md-6 aqi"></div>   
         </div>
         <div class="row">
-            <div class="col-1"></div>
-            <div class="col-7 key">
+            <div class="col-12 col-md-9 key">
                 <ul class="">
                     <h4>AQI Index defined</h4>
                     <li>0 - 50: Good / Green - air pollution poses no threat</li>
                     <li>51 - 100: Moderate / Yellow - risk for some sensitive people</li>
                     <li>101 - 150: Poor / Orange - unhealthy for sensitive people</li>
-                    <li>151 - 200: Unhealhty / Red - general public may experience health effects</li>
-                    <li>201 - 300: Very unhealhty / Violet: risk of health effects is increased for everyone</li>
+                    <li>151 - 200: Unhealthy / Red - general public may experience health effects</li>
+                    <li>201 - 300: Very unhealthy / Violet: risk of health effects is increased for everyone</li>
                     <li>301+: Hazardous / Maroon - health alert of emergency conditions</li>
                 </ul>
             </div>
-            <div class="col-1"></div>
         </div>
         <div class="row">
-            <div class="col-1"></div>
-            <div class="patt col-6"></div>
-            <div class="col-2"></div>
+            <div class="patt col-lg-6 col-md-8 col-12"></div>
         </div>
         <div class="row">
-            <div class="col-1"></div>
-            <div class="temp col-4"></div>
-            <div class="col-2"></div>
-            <div class="humid col-4"></div>
+            <div class="temp col-lg-6 col-md-8 col-12"></div>
         </div>
         <div class="row">
-            <div class="col-1"></div>
-            <div class="speed col-4"></div>
-            <div class="col-2"></div>
-            <div class="direct col-4"></div>
+            <div class="humid col-lg-6 col-md-8 col-12"></div>
+        </div>
+        <div class="row">
+            <div class="speed col-lg-6 col-md-8 col-12"></div>
+        </div>
+        <div class="row">
+            <div class="direct col-lg-6 col-md-8 col-12"></div>
         </div>
     </div>
 
