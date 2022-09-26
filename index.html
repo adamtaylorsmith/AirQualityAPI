@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>API Project ATS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
 <br>
@@ -13,10 +16,7 @@
     <div class="row">
         <div class="col"><h1>Air Quality Index and Weather Conditions Around the World</h1></div>
     </div><br>
-    <div class="row">
-        <div class="col" id="refresh"><button class="buttonSty"><a href="javascript:location.reload(true)">Refresh Page</a></button></div>
-        
-    </div><br>
+    
     <hr><br>
     <div class="row">
         <div class="col">
@@ -37,17 +37,22 @@
                 <select id="selectCity"><option></option>
                 </select>
                 <button onclick="catchFormData();return false" class="buttonSty">CHOOSE</button>
-            </form><br>
+            </form>
         </div>
-    </div>
+        
+    </div><br>
     <div class="row">
         <div class="col">- OR -</div>
-    </div><br><br>
+    </div><br>
     <div class="row">
         <div class="col"><p>Allow us access to your LOCATION and get an automatic GPS result:</p>
             <button onclick="getLocation()">CLICK FOR GPS</button>
         </div>
-    </div>   
+    </div><br><br>
+    <div class="row">
+        <div class="col" id="refresh"><button class="buttonSty"><a href="javascript:location.reload(true)">Refresh Page</a></button></div>   
+    </div><br><br>
+    
 </div>
 
 <br>
